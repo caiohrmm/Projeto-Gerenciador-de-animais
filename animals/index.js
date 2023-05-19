@@ -3,10 +3,12 @@ const router = express.Router();
 
 const pool = require("../db/connection");
 
+// Add animals
 router.get("/add", (req, res) => {
   res.render("addanimals");
 });
 
+// Save animals in database
 router.post("/save", (req, res) => {
   const animal = req.body.animalname;
   const race = req.body.raceanimal;
@@ -37,6 +39,25 @@ router.post("/save", (req, res) => {
   });
 });
 
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+
+  const data = ["idanimal", id];
+
+  const sql = `SELECT * FROM animal WHERE ??=?`;
+
+  pool.query(sql, data, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      const animal = data[0];
+      res.render("animalfocus", { animal });
+    }
+  });
+});
+
+// List animals
 router.get("/", (req, res) => {
   const data = ["idanimal", "animalname", "race", "ownername"];
   const sql = `SELECT ??,??,??, ?? FROM animal`;
@@ -46,7 +67,6 @@ router.get("/", (req, res) => {
       return;
     } else {
       const animals = data;
-      console.log(animals);
       res.render("animals", { animals });
     }
   });
