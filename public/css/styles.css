@@ -9,12 +9,9 @@ html {
 
 body {
   background-color: #d9dfdf;
-  height: 100vh;
-  position: relative;
 }
 
 header {
-  position: sticky;
   padding: 0 16px;
   background-image: linear-gradient(to right, #36a3b5, #2f94a4, #236d79);
   height: 13%;
@@ -35,11 +32,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
-  left: 0;
   font-weight: 500;
+  margin-top: 33px;
 }
 
 footer p span {
@@ -404,3 +401,70 @@ nav li > a:hover::after {
     display: block;
   }
 }
+
+.container-animals {
+    width: 70%;
+    background-color: #f6f5f5;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 10px 5px 5px rgb(128, 126, 126);
+    padding-bottom: 2em;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-animals h1 {
+    width: 100%;
+    text-align: center;
+    background-color: darkgray;
+    padding: 10px 0;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.container-animals h2 {
+    font-size: 1.2em;
+    margin-top: 5px;
+    padding: 10px;
+    font-weight: 600;  
+}
+
+.container-animals h5 {
+    font-weight: 600;
+    text-align: center;  
+}
+
+.container-animals h2 span {
+    color: #b25413;
+    border-bottom: 1px solid;
+}
+
+.container-animals h5 span {
+    color: darkblue;
+    border-bottom: 1px solid;
+}
+
+.container-animals a {
+    text-decoration: none;
+    color: #333;
+    border: 1.5px solid black;
+    display: block;
+    text-align: center;
+    padding: 4px 0;
+    margin-top: 15px ;
+    font-size: 0.9em;
+    background-color: darkgray;
+    color: #fff;
+    border-radius: 6px;
+    transition-duration: .5s;
+    font-weight: 600;
+}
+
+.container-animals a:hover {
+    color: black;
+    background-color: lightgray ;
+}
+

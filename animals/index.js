@@ -29,10 +29,25 @@ router.post("/save", (req, res) => {
   pool.query(sql, data, (err) => {
     if (err) {
       console.log(err);
-      return
+      return;
     } else {
-        res.redirect('/animals/add')
-        console.log('Os dados foram inseridos no banco')
+      res.redirect("/animals/add");
+      console.log("Os dados foram inseridos no banco");
+    }
+  });
+});
+
+router.get("/", (req, res) => {
+  const data = ["idanimal", "animalname", "race", "ownername"];
+  const sql = `SELECT ??,??,??, ?? FROM animal`;
+  pool.query(sql, data, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      const animals = data;
+      console.log(animals);
+      res.render("animals", { animals });
     }
   });
 });
