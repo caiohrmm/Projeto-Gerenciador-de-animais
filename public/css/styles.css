@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Open Sans';
+}
+
+body {
+   background-color: #D9DFDF;
+   height: 100vh;
+   position: relative;
+}
+
+header {
+    height: 13%;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    background-image: linear-gradient(to right, #36A3B5,#2F94A4, #236D79);
+    padding: 0 16px;
+    position: sticky;
+}
+
+footer {
+    height: 10%;
+    background-color: #36A3B5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    font-weight: 500;
+}
+
+footer p span {
+    color: rgb(12, 131, 12);
+    border-bottom: 1px solid;
+    font-weight: bold;
+}
+
+footer p {
+    padding: 5px 0;
+    border-bottom: 1px solid;
+}
+
+.container h1 {
+    font-size: 27px;
+    border-bottom: 1.5px solid;
+    color: #3C3C3C;
+    margin-left: 10px;
+}
+
+.container h1 span {
+    color: #B25413;
+    border-bottom: 1.5px solid  ;
+}
+
+.container-home {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    height: 60%;
+}
+
+.container-home h1 {
+    font-size: 24px;
+    padding: 10px;
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+.container-home h3 {
+    font-size: 18px;
+    padding: 10px;
+    border-top: none;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.container-home a{
+    margin-top: 20px;
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    font-weight: bold;
+  }
+  
+  .container-home a span{
+    position: relative;
+    z-index: 2;
+  }
+  
+  .container-home a:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: blue;
+    transition: all .35s;
+  }
+  
+  .container-home a:hover{
+    color: #fff;
+  }
+  
+  .container-home a:hover:after{
+    width: 100%;
+  }
