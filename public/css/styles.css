@@ -73,7 +73,7 @@ footer p span {
 .container-home h1 {
   font-size: 24px;
   padding: 10px;
-  border: 2px solid blue;
+  border: 2px solid #36a3b5;
   border-radius: 8px;
 }
 
@@ -114,7 +114,7 @@ footer p span {
   left: 0;
   width: 0;
   height: 100%;
-  background: blue;
+  background: #36a3b5;
   transition: all 0.35s;
 }
 

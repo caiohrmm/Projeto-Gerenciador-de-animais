@@ -14,6 +14,14 @@ app.use(express.json());
 // Elementos estáticos
 app.use(express.static("public"));
 
+// Ler o body
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+app.use(express.json());
+
 // Rota de animais
 const animalsRouters = require('./animals')
 
