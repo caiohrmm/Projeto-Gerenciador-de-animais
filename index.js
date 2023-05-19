@@ -21,7 +21,11 @@ app.use(
 app.use(express.json());
 
 // Elementos estáticos
-app.use(express.static('public'))
+app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  res.render("home");
+});
 
 app.listen(port, (err) => {
   if (err) {
