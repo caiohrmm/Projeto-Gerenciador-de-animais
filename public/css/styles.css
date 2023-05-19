@@ -38,15 +38,15 @@ footer {
   font-weight: 500;
 }
 
-footer p span a{
+footer p span a {
   text-decoration: none;
   color: rgb(12, 131, 12);
   border-bottom: 1px solid;
   font-weight: bold;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 
-footer p span a:hover{
+footer p span a:hover {
   color: lightgreen;
 }
 
@@ -86,7 +86,7 @@ footer p span a:hover{
   margin-top: 8px;
 }
 
-.container-home a {
+.container-home a , .container-animalmain a {
   margin-top: 20px;
   display: block;
   width: 200px;
@@ -103,7 +103,7 @@ footer p span a:hover{
   font-weight: bold;
 }
 
-.container-home a span {
+.container-home a span, .container-animalmain a span {
   position: relative;
   z-index: 2;
 }
@@ -119,11 +119,33 @@ footer p span a:hover{
   transition: all 0.35s;
 }
 
-.container-home a:hover {
+.container-animalmain a:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #36a3b5;
+  transition: all 0.35s;
+}
+
+.container-animalmain .excluir:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: red;
+  transition: all 0.35s;
+}
+
+.container-home a:hover ,.container-animalmain a:hover {
   color: #fff;
 }
 
-.container-home a:hover:after {
+.container-home a:hover:after, .container-animalmain a:hover:after {
   width: 100%;
 }
 
@@ -157,6 +179,7 @@ footer p span a:hover{
   display: flex;
   margin: 15px 10px;
 }
+
 /*input Animado*/
 .input-slide {
   position: relative;
@@ -173,11 +196,29 @@ footer p span a:hover{
   outline: 0;
   transition: all 0.3s ease-in-out;
 }
-.input-slide::-webkit-input-placeholder {
+ .textarea {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0 10px 75px;
+  height: 100px;
+  font-family: "Open Sans", sans;
+  font-size: 23px;
+  font-weight: 400;
+  color: #d2d2d2;
+  background: #ffffff;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.input-slide::-webkit-input-placeholder, .textarea::-webkit-input-placeholder {
   color: #4c4e4e;
   font-weight: 300;
 }
-.input-slide + label {
+.input-slide + label, .textarea+ label{
   display: inline-block;
   position: absolute;
   transform: translateX(0);
@@ -197,7 +238,7 @@ footer p span a:hover{
   border-bottom-left-radius: 3px;
   overflow: hidden;
 }
-.input-slide + label:after {
+.input-slide + label:after, .textarea + label:after {
   content: "";
   position: absolute;
   top: 0;
@@ -212,7 +253,7 @@ footer p span a:hover{
   border-bottom-left-radius: 3px;
 }
 .input-slide:focus,
-.input-slidev:active {
+.input-slide:active, .textarea:focus, .textarea:active {
   color: #4c4e4e;
   background: #fff;
   padding: 10px 0 10px 10px;
@@ -220,16 +261,16 @@ footer p span a:hover{
   border-bottom-left-radius: 0;
 }
 .input-slide:focus::-webkit-input-placeholder,
-.input-slide:active::-webkit-input-placeholder {
+.input-slide:active::-webkit-input-placeholder, .textarea:focus::-webkit-input-placeholder, .textarea:active::-webkit-input-placeholder {
   color: #aaa;
 }
 .input-slide:focus + label,
-.input-slide:active + label {
+.input-slide:active + label, .textarea:focus + label, .textarea:active + label {
   color: #fff;
   transform: translateX(-100%);
 }
 .input-slide:focus + label:after,
-.input-slide:active + label:after {
+.input-slide:active + label:after, .textarea:focus + label:after, .textarea:active + label:after {
   background: #4c4e4e;
   transform: translate(100%);
 }
@@ -327,6 +368,19 @@ footer p span a:hover{
   border-radius: 3px;
   width: 100%;
 }
+
+.excluiranimal {
+  padding: 1em 2em;
+  cursor: pointer;
+  border: none;
+  background-color: #E14008;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #fff;
+  border-radius: 3px;
+  width: 100%;
+}
 .zoom-shadow {
   display: inline-block;
   vertical-align: middle;
@@ -397,9 +451,13 @@ nav li > a:hover::after {
 }
 /*960PX BREAKPOINT*/
 @media (min-width: 60em) {
+  nav ul {
+    list-style-type: none;
+  }
   nav li {
     width: auto;
     display: inline;
+    list-style-type: none;
   }
   nav li:after {
     display: block;
@@ -471,4 +529,84 @@ nav li > a:hover::after {
 .container-animals a:hover {
   color: black;
   background-color: lightgray;
+}
+
+.container-animalmain {
+  width: 90%;
+  background-color: #f6f5f5;
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 10px 5px 5px rgb(128, 126, 126);
+  padding-bottom: 2em;
+  margin-bottom: 80px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: baseline;
+  flex-direction: column;
+  align-items: center;
+  height: 65%;
+  position: relative;
+}
+
+.container-animalmain h1 {
+  border: 2px solid #2f94a4;
+  box-shadow: 0 3px 4px 4px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  color: #030b21;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  padding: 0.8em 0;
+  font-size: 2.4em;
+}
+
+.container-animalmain h3 {
+  padding: 0.7em 0;
+  width: 100%;
+  box-shadow: 0 3px 4px 4px rgba(94, 94, 94, 0.3);
+  border-bottom: 2px solid rgba(94, 94, 94, 0.8);
+  margin-top: 1px;
+  text-align: center;
+  color: #5E5E5E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  height: 15%;
+  
+}
+
+.container-animalmain h3 {
+  padding: 0.9em 0;
+  width: 100%;
+  box-shadow: 0 3px 4px 4px rgba(94, 94, 94, 0.3);
+  border-bottom: 2px solid rgba(94, 94, 94, 0.8);
+  margin-top: 1px;
+  text-align: center;
+  color: #5E5E5E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  height: 15%;
+  
+}
+
+.container-animalmain h5 {
+  position: absolute;
+  bottom: 0;
+  padding: 0.5em;
+  color: #030b21;
+  font-size: 0.9em;
+  
+}
+
+.buttons {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }

@@ -39,6 +39,103 @@ router.post("/save", (req, res) => {
   });
 });
 
+// Edit animals view
+router.get("/edit/:id", (req, res) => {
+  const id = req.params.id;
+
+  const data = ["idanimal", id];
+
+  const sql = `SELECT * FROM animal WHERE ??=?`;
+
+  pool.query(sql, data, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      const animal = data[0];
+
+      console.log(animal);
+      res.render("editanimal", { animal });
+    }
+  });
+});
+
+// Edit animals post
+router.post("/edit/editing/:id", (req, res) => {
+  const id = req.params.id;
+
+  const name = req.body.animalname;
+  const race = req.body.raceanimal;
+  const owner = req.body.ownername;
+  const description = req.body.description;
+
+  const data = [
+    "animalname",
+    name,
+    "race",
+    race,
+    "ownername",
+    owner,
+    "descri",
+    description,
+    "idanimal",
+    id,
+  ];
+
+  const sql = `UPDATE animal SET ??=?, ??=?, ??=?, ??=? WHERE ??=?`;
+
+  pool.query(sql, data, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      res.redirect("/animals/");
+    }
+  });
+});
+
+// Delete animal
+
+// Delete animals view
+router.get("/delete/:id", (req, res) => {
+  const id = req.params.id;
+
+  const data = ["idanimal", id];
+
+  const sql = `SELECT * FROM animal WHERE ??=?`;
+
+  pool.query(sql, data, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      const animal = data[0];
+
+      console.log(animal);
+      res.render("deleteanimal", { animal });
+    }
+  });
+});
+
+// Delete animals post
+
+router.post("/delete/deleting/:id", (req, res) => {
+  const id = req.params.id;
+
+  const data = ["idanimal", id];
+
+  const sql = `DELETE FROM animal WHERE ??=?`;
+
+  pool.query(sql, data, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      res.redirect("/animals/");
+    }
+  });
+});
+
 router.get("/:id", (req, res) => {
   const id = req.params.id;
 

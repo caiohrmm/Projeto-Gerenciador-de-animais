@@ -1,0 +1,13 @@
+<div class="container-animalmain">
+  {{#with animal}}
+    <h1>{{animalname}} {{race}}</h1>
+    <h3>{{descri}}</h3>
+    <h5>De: {{ownername}}</h5>
+    <div class="buttons">
+      <a href="/animals/edit/{{idanimal}}"> <span>Editar animal</span> </a>
+      <a href="/animals/delete/{{idanimal}}" class="excluir"><span>Excluir animal</span></a>
+
+    </div>
+
+  {{/with}}
+</div>

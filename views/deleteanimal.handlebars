@@ -1,9 +1,10 @@
 <div class="box-formulario">
   <div class="formulario">
     <div class="title-form">
-      <h1>Cadastre um animal</h1>
+      <h1>Exclua um animal</h1>
+      {{#with animal}}
     </div>
-    <form action="/animals/save" method="post">
+    <form action="deleting/{{idanimal}}" method="post">
       <span>
         <input
           type="text"
@@ -11,7 +12,9 @@
           name="animalname"
           placeholder="Animal"
           autocomplete="off"
+          disabled=""
           required=""
+          value="{{animalname}}"
         />
         <label for="animalname"></label>
       </span>
@@ -23,6 +26,9 @@
           placeholder="Raça"
           autocomplete="off"
           required=""
+          disabled=""
+          value="{{race}}"
+
         />
         <label for="raceanimal"> </label>
       </span>
@@ -34,25 +40,27 @@
           placeholder="Proprietário do animal"
           autocomplete="off"
           required=""
+          value="{{ownername}}"
+          disabled=""
         />
         <label for="ownername"> </label>
       </span>
       <span>
-        <textarea
+        <input
           type="text"
-          class="textarea-slide"
+          class="textarea"
           name="description"
-          rows="3"
-          placeholder="Descrição"
-          autocomplete="off"
-          required=""
-        ></textarea>
+          value="{{descri}}"
+          placeholder="Descrição do animal"
+          disabled=""
+        />
         <label for="description"> </label>
       </span>
+      {{/with}}
       <div class="box-btn">
 
-        <button type="submit" class="btn-envia zoom-shadow">
-          Cadastrar
+        <button type="submit" class="zoom-shadow excluiranimal">
+          Excluir animal
         </button>
       </div>
     </form>
