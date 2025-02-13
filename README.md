@@ -42,7 +42,7 @@ DB_DIALECT=mysql
 
 ### 4️⃣ Criar a tabela no banco de dados
 ```sh
-CREATE TABLE animals (
+CREATE TABLE animal (
     idanimal SERIAL PRIMARY KEY,
     animalname VARCHAR(255),
     race VARCHAR(255),
